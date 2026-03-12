@@ -161,7 +161,7 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink-deep
 .scorecard th{font-family:'Inter',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:1rem 1.25rem;text-align:left;font-weight:400;white-space:nowrap;}
 .scorecard td{padding:.85rem 1.25rem;border-bottom:1px solid var(--rule);vertical-align:middle;}
 .scorecard tbody tr:last-child td{border-bottom:none;}
-.scorecard tbody tr:nth-child(even) td{background:#F8F8F6;}
+.scorecard tbody tr:nth-child(even) td{background:var(--mist);}
 .co-name{font-weight:600;font-size:.88rem;}
 .co-url{font-family:'Inter',sans-serif;font-weight:500;font-size:.68rem;color:rgba(0,0,0,.35);display:block;margin-top:2px;}
 .badge{display:inline-flex;align-items:center;font-family:'Inter',sans-serif;font-weight:500;font-size:.62rem;padding:.2rem .5rem;border-radius:2px;white-space:nowrap;}
@@ -204,11 +204,17 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink-deep
   .cover-header,.cover-body,.cover-footer,.report-body,.cta-section,.report-footer{padding:2rem;}
   .exec-grid,.leak-grid,.window-grid,.findings-grid,.market-share-wrap{grid-template-columns:1fr;}
   .rev-grid{grid-template-columns:1fr 1fr;}
-  .leak-math{grid-template-columns:1fr;gap:.75rem;}
-  .leak-math-op{display:none;}
+  .leak-math{grid-template-columns:1fr auto 1fr auto 1fr;gap:.5rem;padding:1.5rem 1rem;}
+  .leak-math-num{font-size:1.4rem;}
+  .leak-math-op{font-size:1.4rem;}
+  .leak-math-label{font-size:.55rem;}
+  .scorecard-wrap{-webkit-overflow-scrolling:touch;}
+  .scorecard{min-width:700px;}
   .rank-item{grid-template-columns:1.5rem 1fr auto;}
   .rank-score{display:none;}
   .window-cta{flex-direction:column;gap:1rem;text-align:center;}
+  .cover-title{font-size:clamp(2.5rem,6vw,4rem);}
+  .section-title{font-size:2rem;}
 }
 </style>
 </head>
