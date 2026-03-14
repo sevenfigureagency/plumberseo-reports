@@ -1,4 +1,0 @@
-# Cloudflare Pages redirects
-# Do NOT serve root index.html as SPA fallback for /analysis/ paths
-# Each analysis report has its own index.html
-/analysis/*  /analysis/:splat  200
