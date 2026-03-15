@@ -223,6 +223,37 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 .fr-url{font-size:11px;color:var(--mid);font-weight:500;}
 
 @media(max-width:960px){.main{grid-template-columns:1fr;}.hero{grid-template-columns:1fr;}.scorecard{grid-template-columns:repeat(4,1fr);}.screenshot-inner{grid-template-columns:1fr;}.gmb-score-wrap{grid-template-columns:1fr;}}
+
+/* GEO GRID */
+.rc1{background:#2ECC71;}.rc2{background:#38C26A;}.rc3{background:#48B864;}.rc4{background:#68B872;}.rc5{background:#88B87E;}.rc6{background:#C8B840;}.rc7{background:#CCA030;}.rc8{background:#CC8820;}.rc9{background:#C47018;}.rc10{background:#BC5818;}.rc11{background:#B44018;}.rc12{background:#AC2818;}.rc13{background:#A01818;}.rc14{background:#941010;}.rc15{background:#880808;}.rcnr{background:#252525;color:#555;font-size:9px;font-weight:600;}
+.geo-cell{width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:rgba(0,0,0,0.8);position:relative;cursor:default;transition:transform 0.12s,box-shadow 0.12s;user-select:none;}
+.geo-cell:hover{transform:scale(1.2);box-shadow:0 4px 14px rgba(0,0,0,0.6);z-index:20;}
+.geo-cell.pin::after{content:'●';position:absolute;bottom:-3px;right:-3px;font-size:8px;color:rgba(0,0,0,0.9);line-height:1;}
+.geo-grid.g7{display:grid;grid-template-columns:repeat(7,36px);gap:3px;justify-content:center;padding:14px 0;}
+.grid-card{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:14px;}
+.gc-header{padding:12px 14px;background:var(--dark);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.gc-kw{font-weight:700;font-size:13px;color:var(--white);}
+.gc-city{font-size:11px;color:var(--muted);margin-top:2px;}
+.gc-avg-wrap{text-align:right;}
+.gc-avg{font-weight:800;font-size:22px;letter-spacing:-0.02em;}
+.gc-avg.good{color:var(--green);}.gc-avg.mid{color:var(--amber);}.gc-avg.bad{color:var(--red);}.gc-avg.none{color:var(--mid);}
+.gc-avg-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+.gc-body{padding:14px;}
+.stats-row{display:flex;justify-content:center;gap:16px;padding:10px 0;margin-top:6px;border-top:1px solid var(--border);}
+.stats-row .stat{text-align:center;}
+.stats-row .stat-n{font-weight:800;font-size:18px;line-height:1;}
+.stats-row .stat-n.g{color:var(--green);}.stats-row .stat-n.a{color:var(--amber);}.stats-row .stat-n.r{color:var(--red);}.stats-row .stat-n.m{color:var(--mid);}
+.stats-row .stat-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:3px;}
+.interpretation{width:100%;background:var(--card2);border-radius:4px;padding:10px 12px;font-size:12px;color:var(--light);line-height:1.6;border-left:3px solid transparent;margin-top:10px;}
+.interpretation.good-interp{border-left-color:var(--green);}
+.interpretation.mid-interp{border-left-color:var(--amber);}
+.interpretation.bad-interp{border-left-color:var(--red);}
+.geo-tooltip{position:fixed;background:rgba(0,0,0,0.88);color:#fff;padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;pointer-events:none;z-index:1000;display:none;white-space:nowrap;}
+.geo-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;}
+.gs-item{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 12px;text-align:center;}
+.gs-n{font-weight:800;font-size:20px;line-height:1;}
+.gs-n.g{color:var(--green);}.gs-n.a{color:var(--amber);}.gs-n.r{color:var(--red);}.gs-n.m{color:var(--mid);}
+.gs-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;}
 </style>
 </head>
 <body>
@@ -342,24 +373,24 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
     <table class="kw-table" id="kw-table">
       <thead><tr><th>Keyword</th><th>Market</th><th class="c">Organic</th><th class="c">Maps</th></tr></thead>
       <tbody>
-        <tr data-city="primary"><td>Phoenix Plumber</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">5</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Plumber Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">5</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Phoenix Plumbing</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">3</span></td></tr>
-        <tr data-city="primary"><td>Plumbing Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Phoenix Emergency Plumber</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">2</span></td></tr>
-        <tr data-city="primary"><td>Emergency Plumber Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Plumber</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">1</span></td></tr>
+        <tr data-city="primary"><td>Plumber Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">5</span></td><td class="c"><span class="rp r3">3</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Plumbing</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">5</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Plumbing Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Emergency Plumber</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">3</span></td></tr>
+        <tr data-city="primary"><td>Emergency Plumber Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">1</span></td></tr>
         <tr data-city="primary"><td>Phoenix Plumber Near Me</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Plumber Near Me Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">3</span></td></tr>
-        <tr data-city="primary"><td>Phoenix Drain Cleaning</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">3</span></td></tr>
+        <tr data-city="primary"><td>Plumber Near Me Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Drain Cleaning</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">2</span></td></tr>
         <tr data-city="primary"><td>Drain Cleaning Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Phoenix Water Heater Repair</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">3</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Water Heater Repair Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Water Heater Repair</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">3</span></td></tr>
+        <tr data-city="primary"><td>Water Heater Repair Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">1</span></td></tr>
         <tr data-city="primary"><td>Phoenix Trenchless Sewer Replacement</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">1</span></td></tr>
         <tr data-city="primary"><td>Trenchless Sewer Replacement Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">3</span></td></tr>
-        <tr data-city="primary"><td>Phoenix Slab Leak Repair</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">3</span></td></tr>
-        <tr data-city="primary"><td>Slab Leak Repair Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">1</span></td><td class="c"><span class="rp r3">2</span></td></tr>
-        <tr data-city="primary"><td>Phoenix Best Plumber</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">5</span></td><td class="c"><span class="rp r3">1</span></td></tr>
-        <tr data-city="primary"><td>Best Plumber Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">5</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Slab Leak Repair</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">2</span></td><td class="c"><span class="rp r3">2</span></td></tr>
+        <tr data-city="primary"><td>Slab Leak Repair Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r3">3</span></td><td class="c"><span class="rp r3">3</span></td></tr>
+        <tr data-city="primary"><td>Phoenix Best Plumber</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">3</span></td></tr>
+        <tr data-city="primary"><td>Best Plumber Phoenix</td><td><span class="ct ct-p">Primary</span></td><td class="c"><span class="rp r10">4</span></td><td class="c"><span class="rp r3">1</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -368,10 +399,9 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 <!-- 03 GEO GRID -->
 <div class="section">
   <div class="sh"><div class="sn">03</div><div class="st">Geographic Visibility Grid — Where You Show Up on the Map</div></div>
-  <div style="font-size:13px;color:var(--light);margin-bottom:14px;line-height:1.65;">Each grid below represents a 7×7 mile area centered on your business location. Every cell shows your Google Maps ranking when searched from that specific point. Green = top 3, amber = page 1, red = page 2+, dark = not ranking.</div>
-  <div style="margin-bottom:18px;"><div style="font-size:12px;font-weight:700;color:var(--white);margin-bottom:6px;">Plumber</div><table style="border-collapse:collapse;"><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr></table></div>
-<div style="margin-bottom:18px;"><div style="font-size:12px;font-weight:700;color:var(--white);margin-bottom:6px;">Emergency Plumber</div><table style="border-collapse:collapse;"><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">3</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">2</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">2</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">2</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">3</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr></table></div>
-<div style="margin-bottom:18px;"><div style="font-size:12px;font-weight:700;color:var(--white);margin-bottom:6px;">Drain Cleaning</div><table style="border-collapse:collapse;"><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">2</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">3</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">3</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">2</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr><tr><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:#1A1A1A;border:1px solid #2A2A2A;color:var(--mid);">–</td><td style="width:38px;height:38px;text-align:center;font-weight:700;font-size:11px;background:var(--gbg);border:1px solid var(--gborder);color:var(--green);">1</td></tr></table></div>
+  <div style="font-size:13px;color:var(--light);margin-bottom:14px;line-height:1.65;">Each grid represents a 7×7 mile area centered on your business location. Every cell shows your Google Maps ranking when searched from that exact point. <span style="color:var(--green);font-weight:600;">Green = top 3</span>, <span style="color:var(--amber);font-weight:600;">amber = page 1</span>, <span style="color:var(--red);font-weight:600;">red = page 2+</span>, <span style="color:var(--mid);font-weight:600;">dark = not ranking</span>.</div>
+  <div id="geo-grids"></div>
+  <div class="geo-summary" id="geo-summary"></div>
 </div>
 
 <!-- 04 COMPETITIVE GAP ANALYSIS -->
@@ -801,6 +831,117 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 </div>
 
 <script>
+// Tooltip element
+const tooltip = document.createElement('div');
+tooltip.className = 'geo-tooltip';
+document.body.appendChild(tooltip);
+
+// Rank class mapping
+function getRankClass(r) {
+  if (!r) return 'rcnr';
+  if (r === 1) return 'rc1';
+  if (r === 2) return 'rc2';
+  if (r === 3) return 'rc3';
+  if (r <= 5)  return 'rc4';
+  if (r <= 7)  return 'rc6';
+  if (r <= 10) return 'rc8';
+  if (r <= 13) return 'rc10';
+  if (r <= 17) return 'rc12';
+  return 'rc15';
+}
+
+function avgClass(avg) {
+  if (avg <= 5) return 'good';
+  if (avg <= 10) return 'mid';
+  return 'bad';
+}
+
+function computeStats(data) {
+  let top3=0, top10=0, p2=0, nr=0, sum=0, cnt=0;
+  data.forEach(row => row.forEach(r => {
+    if (!r) { nr++; return; }
+    if (r <= 3) top3++;
+    else if (r <= 10) top10++;
+    else p2++;
+    sum += r; cnt++;
+  }));
+  return { top3, top10, p2, nr, avg: cnt ? Math.round(sum/cnt*10)/10 : null };
+}
+
+function buildGrid(kwData, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container || !kwData || !kwData.length) return;
+  container.innerHTML = '';
+  kwData.forEach((item, idx) => {
+    const stats = computeStats(item.data);
+    const card = document.createElement('div');
+    card.className = 'grid-card';
+    const avgDisp = stats.avg ? stats.avg : 'NR';
+    const ac = stats.avg ? avgClass(stats.avg) : 'none';
+    card.innerHTML = `
+      <div class="gc-header">
+        <div>
+          <div class="gc-kw">${item.kw}</div>
+          <div class="gc-city">${item.city}</div>
+        </div>
+        <div class="gc-avg-wrap">
+          <div class="gc-avg ${ac}">${avgDisp}</div>
+          <div class="gc-avg-lbl">avg rank</div>
+        </div>
+      </div>
+      <div class="gc-body">
+        <div class="geo-grid g7" id="gg-${containerId}-${idx}"></div>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-n g">${stats.top3}</div><div class="stat-l">Top 3</div></div>
+          <div class="stat"><div class="stat-n a">${stats.top10}</div><div class="stat-l">4-10</div></div>
+          <div class="stat"><div class="stat-n r">${stats.p2}</div><div class="stat-l">11-20</div></div>
+          <div class="stat"><div class="stat-n m">${stats.nr}</div><div class="stat-l">Not Ranked</div></div>
+        </div>
+        <div class="interpretation ${item.interpClass || ''}">
+          ${item.interp || ''}
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+    const gridEl = document.getElementById(`gg-${containerId}-${idx}`);
+    item.data.forEach((row, ri) => {
+      row.forEach((rank, ci) => {
+        const cell = document.createElement('div');
+        cell.className = `geo-cell ${getRankClass(rank)}`;
+        const isCenter = ri === item.center[0] && ci === item.center[1];
+        if (isCenter) cell.classList.add('pin');
+        cell.textContent = rank || 'NR';
+        cell.addEventListener('mousemove', e => {
+          const text = rank ? `Rank #${rank} from this location` : 'Not ranking in top 20 from this location';
+          tooltip.textContent = isCenter ? `Your location — Rank #${rank || 'NR'}` : text;
+          tooltip.style.display = 'block';
+          tooltip.style.left = (e.clientX + 12) + 'px';
+          tooltip.style.top  = (e.clientY - 28) + 'px';
+        });
+        cell.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+        gridEl.appendChild(cell);
+      });
+    });
+  });
+}
+
+function buildSummary(kwData, containerId) {
+  const el = document.getElementById(containerId);
+  if (!el || !kwData || !kwData.length) return;
+  let t3=0, t10=0, p2t=0, nrt=0;
+  kwData.forEach(item => {
+    const s = computeStats(item.data);
+    t3 += s.top3; t10 += s.top10; p2t += s.p2; nrt += s.nr;
+  });
+  el.innerHTML = `
+    <div class="gs-item"><div class="gs-n g">${t3}</div><div class="gs-l">Top 3</div></div>
+    <div class="gs-item"><div class="gs-n a">${t10}</div><div class="gs-l">4-10</div></div>
+    <div class="gs-item"><div class="gs-n r">${p2t}</div><div class="gs-l">11-20</div></div>
+    <div class="gs-item"><div class="gs-n m">${nrt}</div><div class="gs-l">Not Ranked</div></div>
+  `;
+}
+
+// KW table filter/download functions
 function filterKW(type, btn) {
   document.querySelectorAll('.kf').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -832,6 +973,17 @@ function downloadCSV() {
   a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
   a.download = 'robins-plumbing-phoenix-keywords.csv';
   a.click();
+}
+
+const GEO_KEYWORDS = {"plumbing": [{"kw": "Phoenix Plumber", "city": "Phoenix, AZ", "data": [[0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 1], [1, 1, 0, 1, 1, 0, 1], [0, 0, 1, 1, 1, 1, 1], [1, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 1, 1, 0], [1, 1, 1, 0, 0, 0, 1]], "center": [3, 3], "interp": "You have scattered coverage across the Phoenix service map with 17 cells showing your presence, concentrated in the central-south quadrants, indicating strong but incomplete geographic penetration.", "interpClass": "good-interp"}, {"kw": "Phoenix Emergency Plumber", "city": "Phoenix, AZ", "data": [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [1, 1, 0, 0, 0, 0, 1], [0, 0, 3, 3, 3, 3, 3], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 1, 0], [1, 1, 0, 0, 0, 0, 1]], "center": [3, 3], "interp": "Your emergency plumber grid shows weak coverage except for a concentration of 5 cells (value 3) in the center-east area, revealing that competitors are dominating emergency keyword territory in most of your service zones.", "interpClass": "good-interp"}, {"kw": "Phoenix Drain Cleaning", "city": "Phoenix, AZ", "data": [[1, 0, 0, 1, 1, 0, 0], [0, 1, 0, 0, 1, 1, 0], [0, 0, 0, 3, 1, 0, 1], [0, 1, 3, 2, 2, 1, 1], [1, 1, 0, 0, 0, 1, 1], [1, 0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0, 1]], "center": [3, 3], "interp": "Your drain cleaning coverage is your strongest grid performance with dense clustering (values 2-3) in the center and south zones, suggesting this service vertical is your competitive advantage geographically, but edges remain undefended.", "interpClass": "good-interp"}]};
+
+// Initialize geo grids after data injection
+if (typeof GEO_KEYWORDS !== 'undefined') {
+  const serviceType = Object.keys(GEO_KEYWORDS)[0];
+  if (serviceType && GEO_KEYWORDS[serviceType]) {
+    buildGrid(GEO_KEYWORDS[serviceType], 'geo-grids');
+    buildSummary(GEO_KEYWORDS[serviceType], 'geo-summary');
+  }
 }
 </script>
 </body>
